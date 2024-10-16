@@ -20,7 +20,7 @@ namespace week7_day3
 
         public void Show(string s)
         {
-            
+            throw new NotImplementedException();
         }
 
         public bool IsValidInput(string input)

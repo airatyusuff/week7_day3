@@ -9,5 +9,6 @@ namespace week7_day3
     internal interface INumberGenerator
     {
         public int GetNumberToGuess();
+        public int GetMaxGuess();
     }
 }

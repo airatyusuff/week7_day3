@@ -8,28 +8,43 @@ namespace week7_day3
 {
     internal class Game
     {
-        private int MaxAttempts;
-        private int numberToGuess;
         private IGameIO gameIO;
-        public int attempts { get; private set; } = 5;
-        public bool isCorrect { get; private set; } = false;
+        private int MaxAttempts;
+        private int MaxGuess;
+        private int numberToGuess;
+        private int attempts;
 
-        public Game(GameSetup setup) {
-            numberToGuess = setup.numberGenerator.GetNumberToGuess();;
-            MaxAttempts = setup.MaxAttempts;
+        private bool isCorrect = false;
+
+        public Game(GameSetup setup)
+        {
+            attempts = setup.MaxAttempts;
             gameIO = setup.gameIO;
+            MaxAttempts = setup.MaxAttempts;
+            MaxGuess = setup.numberGenerator.GetMaxGuess();
+            numberToGuess = setup.numberGenerator.GetNumberToGuess();
         }
 
         public void Run()
         {
-            gameIO.Show("The number is " + numberToGuess);
+            gameIO.Show("The number is " + numberToGuess); //cheat
+
             while (isGameValid())
             {
                 Play();
 
-                if (isEndOfGame())
+                if (noAttemptsLeft())
                 {
-                    gameIO.Show("The number is " + numberToGuess);
+                    gameIO.Show("No Attempts left");
+                    gameIO.Show("The correct number is " + numberToGuess);
+                    gameIO.Show("The End");
+                    return;
+                }
+
+                if (isCorrect)
+                {
+                    gameIO.Show("You finished with " + attempts + " attempts left!");
+                    gameIO.Show("The End");
                     return;
                 }
             }
@@ -38,7 +53,7 @@ namespace week7_day3
         public void Play()
         {
             gameIO.Show(attempts + " attempts remaining");
-            Console.Write("Enter your guess between 0 and 50: ");
+            gameIO.Show("Enter your guess between 0 and " + MaxGuess + ":");
 
             string userInput = gameIO.GetInput();
             bool isInputValid = gameIO.IsValidInput(userInput);
@@ -47,6 +62,7 @@ namespace week7_day3
             {
                 int guess = gameIO.FormatInput(userInput);
                 CheckGuess(guess);
+                attempts--;
             }
             else gameIO.Show("Invalid number, try again");
         }
@@ -60,7 +76,6 @@ namespace week7_day3
                 return;
             }
 
-            attempts--;
             if (num < numberToGuess) {
                 gameIO.Show("Too low");
             }
@@ -76,9 +91,9 @@ namespace week7_day3
             return attempts > 0 && !isCorrect;
         }
 
-        private bool isEndOfGame()
+        private bool noAttemptsLeft()
         {
-            return attempts == 0 || isCorrect;
+            return attempts == 0;
         }
     }
 }

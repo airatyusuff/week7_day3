@@ -8,6 +8,11 @@ namespace week7_day3
 {
     internal class StaticGenerator : INumberGenerator
     {
+        public int GetMaxGuess()
+        {
+            return 23;
+        }
+
         public int GetNumberToGuess()
         {
             return 23;

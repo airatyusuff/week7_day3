@@ -11,7 +11,12 @@ namespace week7_day3
         public int GetNumberToGuess()
         {
             Random rnd = new Random();
-            return rnd.Next(0, 50);
+            return rnd.Next(0, GetMaxGuess());
+        }
+
+        public int GetMaxGuess()
+        {
+            return 50;
         }
     }
 }
