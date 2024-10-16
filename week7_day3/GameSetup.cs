@@ -12,9 +12,9 @@ namespace week7_day3
         public INumberGenerator numberGenerator;
         public IGameIO gameIO;
 
-        public GameSetup(INumberGenerator g, IGameIO io, int num)
+        public GameSetup(INumberGenerator ng, IGameIO io, int num)
         {
-            numberGenerator = g;
+            numberGenerator = ng;
             MaxAttempts = num;
             gameIO = io;
         }

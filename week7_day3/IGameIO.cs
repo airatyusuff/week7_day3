@@ -11,6 +11,7 @@ namespace week7_day3
         public string GetInput();
         public void Show(string output);
 
+        // needs more logic/abstraction to achieve intended - (not clear yet)
         public bool IsValidInput(string input);
 
         public int FormatInput(string input);
