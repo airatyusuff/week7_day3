@@ -22,14 +22,14 @@ namespace week7_day3
 
         public void Run()
         {
-            Show("The number is " + numberToGuess);
+            gameIO.Show("The number is " + numberToGuess);
             while (isGameValid())
             {
                 Play();
 
                 if (isEndOfGame())
                 {
-                    Show("The number is " + numberToGuess);
+                    gameIO.Show("The number is " + numberToGuess);
                     return;
                 }
             }
@@ -37,7 +37,7 @@ namespace week7_day3
 
         public void Play()
         {
-            Show(attempts + " attempts remaining");
+            gameIO.Show(attempts + " attempts remaining");
             Console.Write("Enter your guess between 0 and 50: ");
 
             string userInput = gameIO.GetInput();
@@ -48,26 +48,26 @@ namespace week7_day3
                 int guess = gameIO.FormatInput(userInput);
                 CheckGuess(guess);
             }
-            else Show("Invalid number, try again");
+            else gameIO.Show("Invalid number, try again");
         }
 
         public void CheckGuess(int num)
         {
             if (num == numberToGuess)
             {
-                Show("Correct");
+                gameIO.Show("Correct");
                 isCorrect = true;
                 return;
             }
 
             attempts--;
             if (num < numberToGuess) {
-                Show("Too low");
+                gameIO.Show("Too low");
             }
             
             else
             {
-                Show("Too high");
+                gameIO.Show("Too high");
             }
         }
     
@@ -79,11 +79,6 @@ namespace week7_day3
         private bool isEndOfGame()
         {
             return attempts == 0 || isCorrect;
-        }
-
-        public void Show(string text)
-        {
-            Console.WriteLine(text);
         }
     }
 }
