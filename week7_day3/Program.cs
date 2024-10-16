@@ -6,7 +6,7 @@
         {
             const int MAX_ATTEMPTS = 5;
             INumberGenerator ng = new RandomNumGenerator();
-            IGameIO gio = new DummyInputOutput();
+            IGameIO gio = new ConsoleInputOutput();
 
             GameSetup setup = new GameSetup(ng, gio, MAX_ATTEMPTS);
 
