@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace week7_day3
 {
-    internal interface IGameIO
+    public interface IGameIO
     {
         public string GetInput();
         public void Show(string output);

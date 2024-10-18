@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace week7_day3
 {
-    internal class StaticGenerator : INumberGenerator
+    public class StaticGenerator : INumberGenerator
     {
         public int GetMaxGuess()
         {

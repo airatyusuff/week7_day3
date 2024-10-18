@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace week7_day3
 {
-    internal struct GameSetup
+    public struct GameSetup
     {
         public int MaxAttempts { get; private set; }
         public INumberGenerator numberGenerator;

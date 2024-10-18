@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace week7_day3
 {
-    internal struct DummyInputOutput: IGameIO
+    public struct DummyInputOutput: IGameIO
     {
         public int FormatInput(string input)
         {

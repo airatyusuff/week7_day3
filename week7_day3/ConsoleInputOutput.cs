@@ -7,7 +7,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace week7_day3
 {
-    internal struct ConsoleInputOutput: IGameIO
+    public struct ConsoleInputOutput: IGameIO
     {
         public string GetInput()
         {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace week7_day3
 {
-    internal class RandomNumGenerator : INumberGenerator
+    public class RandomNumGenerator : INumberGenerator
     {
         public int GetNumberToGuess()
         {

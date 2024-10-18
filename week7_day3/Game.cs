@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace week7_day3
 {
-    internal class Game
+    public class Game
     {
         private IGameIO gameIO;
         private int MaxAttempts;
